@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.2.13/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+    <button type="button" onclick="demo()">Download!</button>
+
+
+	<script>
+		function demo() {
+    var obj = new jsPDF('landscape')
+    obj.text('Sample Table', 20, 20)
+    obj.autoTable({
+        startX: 30,
+        startY: 30,
+        head: [
+            ['Name', 'City', 'Phone No.']
+        ],
+        body: [
+            ['Donna', 'New York', '8456210'],
+            ['Rachel', 'Los Angeles', '7845521'],
+            ['Harvey', 'Chicago', '9865371']
+        ],
+    });
+    obj.save('example.pdf');
+}
+	</script>
+</body>
+</html>
